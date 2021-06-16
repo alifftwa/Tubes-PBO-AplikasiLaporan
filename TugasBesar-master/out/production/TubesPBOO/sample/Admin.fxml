@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="tampilan" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Admin">
+   <children>
+      <Button fx:id="btn" layoutX="97.0" layoutY="260.0" mnemonicParsing="false" text="Email dari Perusahaan " />
+      <Button fx:id="btn1" layoutX="323.0" layoutY="260.0" mnemonicParsing="false" text="Hasil Pkn Dari perusahaan" />
+      <Button fx:id="btn2" layoutX="565.0" layoutY="260.0" mnemonicParsing="false" text="Nilai Ujian" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="tampilan" prefHeight="371.0" prefWidth="976.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Dosen">
+   <children>
+      <Label fx:id="text" layoutX="132.0" layoutY="39.0" prefHeight="26.0" prefWidth="88.0" text="Jadwal Ujian" />
+      <VBox layoutX="132.0" layoutY="72.0" prefHeight="124.0" prefWidth="245.0">
+         <children>
+            <TextField fx:id="txtfield" />
+            <TextField fx:id="txtfield1" />
+            <TextField fx:id="txtfield2" />
+            <TextField fx:id="txtfield3" />
+         </children>
+      </VBox>
+      <Label fx:id="text1" layoutX="43.0" layoutY="78.0" text="Nama  Petugas " />
+      <Label fx:id="text2" layoutX="80.0" layoutY="102.0" text="Ruangan" />
+      <Label fx:id="text3" layoutX="80.0" layoutY="127.0" text="Tempat" />
+      <Label fx:id="text4" layoutX="80.0" layoutY="154.0" text="Waktu" />
+      <TableView fx:id="table" layoutX="596.0" layoutY="36.0" prefHeight="299.0" prefWidth="319.0">
+        <columns>
+          <TableColumn fx:id="tbl" prefWidth="106.0" text="Nama Pengawas" />
+          <TableColumn fx:id="tbl1" prefWidth="62.0" text="Ruangan " />
+            <TableColumn fx:id="tbl2" prefWidth="62.0" text="Tempat" />
+            <TableColumn fx:id="tbl3" prefWidth="62.0" text="Waktu" />
+        </columns>
+      </TableView>
+      <Button fx:id="btn" layoutX="101.0" layoutY="238.0" mnemonicParsing="false" text="Insert" />
+      <Button fx:id="btn1" layoutX="203.0" layoutY="238.0" mnemonicParsing="false" text="Delete" />
+      <Button fx:id="btn2" layoutX="316.0" layoutY="238.0" mnemonicParsing="false" text="uptade" />
+   </children>
+</AnchorPane>
