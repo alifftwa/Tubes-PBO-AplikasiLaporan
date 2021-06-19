@@ -2,16 +2,19 @@ package sample;
 
 public class Jadwal {
     private String namapengawas;
-    private int ruangan;
-    private String tempat;
-    private int waktu;
+    private int Ruangan;
+    private String Tempat;
+    private int Waktu;
+    private int Jam;
 
-    public Jadwal(String namapengawas,int ruangan,String tempat,int waktu){
+    public Jadwal(String namapengawas,int Ruangan,String Tempat,int Waktu,int Jam){
         this.namapengawas = namapengawas;
-        this.ruangan = ruangan;
-        this.tempat = tempat;
-        this.waktu = waktu;
+        this.Ruangan = Ruangan;
+        this.Tempat=Tempat;
+        this.Waktu = Waktu;
+        this.Jam = Jam;
     }
+
 
     public String getNamapengawas() {
         return namapengawas;
@@ -22,26 +25,18 @@ public class Jadwal {
     }
 
     public int getRuangan() {
-        return ruangan;
+        return Ruangan;
     }
 
     public void setRuangan(int ruangan) {
-        this.ruangan = ruangan;
+        Ruangan = ruangan;
     }
 
     public String getTempat() {
-        return tempat;
+        return Tempat;
     }
 
     public void setTempat(String tempat) {
-        this.tempat = tempat;
-    }
-
-    public int getWaktu() {
-        return waktu;
-    }
-
-    public void setWaktu(int waktu) {
-        this.waktu = waktu;
+        Tempat = tempat;
     }
 }
