@@ -16,23 +16,26 @@
             <TextField fx:id="txtfield1" />
             <TextField fx:id="txtfield2" />
             <TextField fx:id="txtfield3" />
+            <TextField fx:id="txtfield4" layoutX="10.0" layoutY="96.0" />
          </children>
       </VBox>
       <Label fx:id="text1" layoutX="24.0" layoutY="80.0" text="Nama  Pengawas" textFill="WHITE" />
       <Label fx:id="text2" layoutX="24.0" layoutY="107.0" text="Ruangan" textFill="WHITE" />
       <Label fx:id="text3" layoutX="24.0" layoutY="134.0" prefHeight="18.0" prefWidth="78.0" text="Tempat" textFill="WHITE" />
       <Label fx:id="text4" layoutX="24.0" layoutY="161.0" text="Waktu" textFill="WHITE" />
-      <TableView fx:id="table" layoutX="470.0" layoutY="65.0" prefHeight="405.0" prefWidth="294.0">
+      <TableView fx:id="table" layoutX="388.0" layoutY="65.0" prefHeight="320.0" prefWidth="359.0">
         <columns>
-          <TableColumn fx:id="tbl" prefWidth="106.0" text="Nama Pengawas" />
+          <TableColumn fx:id="tbl" prefWidth="106.0" text="namapengawas" />
           <TableColumn fx:id="tbl1" prefWidth="62.0" text="Ruangan " />
             <TableColumn fx:id="tbl2" prefWidth="62.0" text="Tempat" />
             <TableColumn fx:id="tbl3" prefWidth="62.0" text="Waktu" />
+            <TableColumn fx:id="tbl4" prefWidth="62.0" text="Jam" />
         </columns>
       </TableView>
-      <Button fx:id="btn" layoutX="132.0" layoutY="212.0" mnemonicParsing="false" text="Insert" />
-      <Button fx:id="btn1" layoutX="220.0" layoutY="212.0" mnemonicParsing="false" text="Delete" />
-      <Button fx:id="btn2" layoutX="305.0" layoutY="212.0" mnemonicParsing="false" text="Update" />
+      <Button fx:id="btn" layoutX="132.0" layoutY="238.0" mnemonicParsing="false" text="Insert" />
+      <Button fx:id="btn1" layoutX="218.0" layoutY="238.0" mnemonicParsing="false" text="Delete" />
+      <Button fx:id="btn2" layoutX="306.0" layoutY="238.0" mnemonicParsing="false" text="Update" />
       <Button fx:id="btnBack" layoutX="38.0" layoutY="530.0" mnemonicParsing="false" onAction="#MasukMahasiswa" text="Back" />
+      <Label fx:id="text5" layoutX="24.0" layoutY="196.0" text="Jam" textFill="WHITE" />
    </children>
 </AnchorPane>
