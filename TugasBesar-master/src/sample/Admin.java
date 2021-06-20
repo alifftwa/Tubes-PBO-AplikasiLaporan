@@ -8,11 +8,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class Admin {
@@ -68,6 +72,20 @@ public class Admin {
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         Stage window = (Stage) btnBack.getScene().getWindow();
         window.setScene(new Scene(root, 300, 275));
+    }
+
+    public void btndelete (Admin1 m) {
+        try {
+            Connection c = Database.tryConnect();
+            PreparedStatement ps;
+            String sql = "delete from sample where txtfield1 = ?;";
+            ps = c.prepareStatement(sql);
+            ps.setString(1, m.getTxtfield1());
+            ps.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
 }
