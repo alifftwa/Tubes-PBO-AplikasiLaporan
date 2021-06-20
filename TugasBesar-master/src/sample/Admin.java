@@ -8,6 +8,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+
 
 public class Admin {
     @FXML
@@ -24,6 +30,39 @@ public class Admin {
 
     @FXML
     private Button btnBack;
+
+    @FXML
+    private TextField txtfield1;
+
+    @FXML
+    private TextField txtfield2;
+
+    @FXML
+    private TextField txtfield3;
+
+    @FXML
+    private TextField txtfield4;
+
+    @FXML
+    private Button btninsert;
+
+    @FXML
+    private Button btndelete;
+
+    @FXML
+    private TableView<?> table;
+
+    @FXML
+    private TableColumn<?, ?> colomnama;
+
+    @FXML
+    private TableColumn<?, ?> colomnim;
+
+    @FXML
+    private TableColumn<?, ?> colomtempat;
+
+    @FXML
+    private TableColumn<?, ?> colomwaktu;
 
     public void MasukMahasiswa() throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
