@@ -5,38 +5,44 @@ public class Jadwal {
     private int Ruangan;
     private String Tempat;
     private int Waktu;
-    private int Jam;
 
     public Jadwal(String namapengawas,int Ruangan,String Tempat,int Waktu,int Jam){
-        this.namapengawas = namapengawas;
-        this.Ruangan = Ruangan;
-        this.Tempat=Tempat;
-        this.Waktu = Waktu;
-        this.Jam = Jam;
+        this.setNamapengawas(namapengawas);
+        this.setRuangan(Ruangan);
+        this.setTempat(Tempat);
+        this.setWaktu(Waktu);
     }
 
 
-    public String getNamapengawas() {
+    public String getNamapengawas ( ) {
         return namapengawas;
     }
 
-    public void setNamapengawas(String namapengawas) {
+    public void setNamapengawas (String namapengawas) {
         this.namapengawas = namapengawas;
     }
 
-    public int getRuangan() {
+    public int getRuangan ( ) {
         return Ruangan;
     }
 
-    public void setRuangan(int ruangan) {
+    public void setRuangan (int ruangan) {
         Ruangan = ruangan;
     }
 
-    public String getTempat() {
+    public String getTempat ( ) {
         return Tempat;
     }
 
-    public void setTempat(String tempat) {
+    public void setTempat (String tempat) {
         Tempat = tempat;
+    }
+
+    public int getWaktu ( ) {
+        return Waktu;
+    }
+
+    public void setWaktu (int waktu) {
+        Waktu = waktu;
     }
 }
