@@ -32,18 +32,18 @@ public class Controller {
     public void MasukMahasiswa() throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Mahasiswa .fxml"));
         Stage window = (Stage) btn.getScene().getWindow();
-        window.setScene(new Scene(root, 300, 275));
+        window.setScene(new Scene(root, 786, 550));
     }
 
     public void MasukDosen() throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Dosen.fxml"));
         Stage window = (Stage) btn2.getScene().getWindow();
-        window.setScene(new Scene(root, 300, 275));
+        window.setScene(new Scene(root, 786, 550));
     }
 
     public void MasukAdmin() throws Exception {
         Parent root = load(getClass().getResource("Admin.fxml"));
         Stage window = (Stage) btn3.getScene().getWindow();
-        window.setScene(new Scene(root, 300, 275));
+        window.setScene(new Scene(root, 786, 550));
     }
 }
