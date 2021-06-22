@@ -5,28 +5,39 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="tampilan" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #c20000;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Admin">
+<AnchorPane fx:id="tampilan" prefHeight="477.0" prefWidth="786.0" style="-fx-background-color: #c20000;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Admin">
    <children>
-      <Button fx:id="btn" layoutX="152.0" layoutY="391.0" mnemonicParsing="false" text="Email Perusahaan" />
-      <Button fx:id="btn1" alignment="CENTER" layoutX="352.0" layoutY="391.0" mnemonicParsing="false" text="Hasil PKN" />
-      <Button fx:id="btn2" layoutX="505.0" layoutY="391.0" mnemonicParsing="false" text="Nilai Ujian" />
-      <Button fx:id="btnBack" layoutX="53.0" layoutY="534.0" mnemonicParsing="false" onAction="#MasukMahasiswa" text="Back" />
-      <Label layoutX="79.0" layoutY="74.0" text="Nama" textFill="#f8f6f6" />
-      <Label layoutX="83.0" layoutY="105.0" text="NIM" textFill="#f8f6f6" />
-      <Label layoutX="75.0" layoutY="138.0" text="Tempat" textFill="#f8f6f6" />
-      <Label layoutX="78.0" layoutY="171.0" text="Waktu" textFill="#f8f6f6" />
+      <ImageView fitHeight="571.0" fitWidth="1025.0" layoutX="-215.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Picture/563cc02a_ad9f_4391_9002_a4909186b4a6.jpeg" />
+         </image>
+      </ImageView>
+      <Button fx:id="btn" layoutX="341.0" layoutY="300.0" mnemonicParsing="false" text="Email Perusahaan" />
+      <Button fx:id="btn1" alignment="CENTER" layoutX="480.0" layoutY="300.0" mnemonicParsing="false" text="Hasil PKN" />
+      <Button fx:id="btn2" layoutX="574.0" layoutY="300.0" mnemonicParsing="false" text="Nilai Ujian" />
+      <Button fx:id="btnBack" layoutX="42.0" layoutY="503.0" mnemonicParsing="false" onAction="#MasukMahasiswa" style="-fx-background-color: transparent; -fx-font-weight: bolder;" text="Back" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <Label layoutX="61.0" layoutY="74.0" style="-fx-font-weight: bolder;" text="Nama" textFill="WHITE" />
+      <Label layoutX="64.0" layoutY="105.0" prefHeight="9.0" prefWidth="26.0" style="-fx-font-weight: bolder;" text="NIM" textFill="WHITE" />
+      <Label layoutX="56.0" layoutY="134.0" style="-fx-font-weight: bolder;" text="Tempat" textFill="WHITE" />
+      <Label layoutX="59.0" layoutY="171.0" style="-fx-font-weight: bolder;" text="Waktu" textFill="#f8f6f6" />
       <TextField fx:id="txtfield1" layoutX="122.0" layoutY="70.0" />
       <TextField fx:id="txtfield2" layoutX="122.0" layoutY="101.0" />
       <TextField fx:id="txtfield3" layoutX="122.0" layoutY="134.0" />
       <TextField fx:id="txtfield4" layoutX="122.0" layoutY="167.0" />
-      <Button fx:id="btninsert" layoutX="96.0" layoutY="224.0" mnemonicParsing="false" text="Insert" />
-      <Button fx:id="btndelete" layoutX="235.0" layoutY="224.0" mnemonicParsing="false" text="Delete" />
+      <Button fx:id="btninsert" layoutX="135.0" layoutY="208.0" mnemonicParsing="false" text="Insert" />
+      <Button fx:id="btndelete" layoutX="197.0" layoutY="208.0" mnemonicParsing="false" text="Delete" />
       <TableView fx:id="table" layoutX="341.0" layoutY="71.0" prefHeight="200.0" prefWidth="304.0">
         <columns>
           <TableColumn fx:id="colomnama" prefWidth="75.0" text="Nama" />
-          <TableColumn fx:id="colomnim" prefWidth="75.0" text="Nim" />
+          <TableColumn fx:id="colomnim" prefWidth="75.0" text="NIM" />
             <TableColumn fx:id="colomtempat" prefWidth="75.0" text="Tempat" />
             <TableColumn fx:id="colomwaktu" prefWidth="75.0" text="Waktu" />
         </columns>
