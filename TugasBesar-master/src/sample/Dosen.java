@@ -38,11 +38,6 @@ public class Dosen implements Initializable {
     @FXML
     private TextField txtfield2;
 
-    @FXML
-    private TextField txtfield3;
-
-    @FXML
-    private TextField txtfield4;
 
     @FXML
     private Label text1;
@@ -153,7 +148,7 @@ public class Dosen implements Initializable {
     }
     private void insertRecord(){
         String query = "INSERT INTO PKL VALUES (" + txtfield.getText() + "'," + txtfield1.getText() + "','" + txtfield2.getText() + "',"
-                + txtfield3.getText() + "','" + txtfield4.getText() + ")";
+                +  "','" + ")";
         executeQuery(query);
         showJadwal();
     }
