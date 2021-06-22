@@ -5,37 +5,46 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="tampilan" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #c20000;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Dosen">
+<AnchorPane fx:id="tampilan" prefHeight="477.0" prefWidth="786.0" style="-fx-background-color: #c20000;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Dosen">
    <children>
+      <ImageView fitHeight="566.0" fitWidth="846.0" layoutX="-45.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Picture/KEGEMBIRAAN-MABA-UMM.jpg" />
+         </image>
+      </ImageView>
       <VBox layoutX="132.0" layoutY="72.0" prefHeight="124.0" prefWidth="245.0" spacing="3.0">
          <children>
             <TextField fx:id="txtfield" />
             <TextField fx:id="txtfield1" />
             <TextField fx:id="txtfield2" />
             <TextField fx:id="txtfield3" />
-            <TextField fx:id="txtfield4" layoutX="10.0" layoutY="96.0" />
          </children>
       </VBox>
-      <Label fx:id="text1" layoutX="24.0" layoutY="80.0" text="Nama  Pengawas" textFill="WHITE" />
-      <Label fx:id="text2" layoutX="24.0" layoutY="107.0" text="Ruangan" textFill="WHITE" />
-      <Label fx:id="text3" layoutX="24.0" layoutY="134.0" prefHeight="18.0" prefWidth="78.0" text="Tempat" textFill="WHITE" />
-      <Label fx:id="text4" layoutX="24.0" layoutY="161.0" text="Waktu" textFill="WHITE" />
+      <Label fx:id="text1" layoutX="24.0" layoutY="80.0" style="-fx-font-weight: bolder;" text="Nama  Pengawas" />
+      <Label fx:id="text2" layoutX="24.0" layoutY="107.0" style="-fx-font-weight: bolder;" text="Ruangan" />
+      <Label fx:id="text3" layoutX="24.0" layoutY="134.0" prefHeight="18.0" prefWidth="78.0" style="-fx-font-weight: bolder;" text="Tempat" />
+      <Label fx:id="text4" layoutX="24.0" layoutY="161.0" style="-fx-font-weight: bolder;" text="Waktu" />
       <TableView fx:id="table" layoutX="388.0" layoutY="65.0" prefHeight="320.0" prefWidth="359.0">
         <columns>
-          <TableColumn fx:id="tbl" prefWidth="106.0" text="namapengawas" />
+          <TableColumn fx:id="tbl" prefWidth="106.0" text="Nama Pengawas" />
           <TableColumn fx:id="tbl1" prefWidth="62.0" text="Ruangan " />
             <TableColumn fx:id="tbl2" prefWidth="62.0" text="Tempat" />
             <TableColumn fx:id="tbl3" prefWidth="62.0" text="Waktu" />
             <TableColumn fx:id="tbl4" prefWidth="62.0" text="Jam" />
         </columns>
       </TableView>
-      <Button fx:id="btn" layoutX="132.0" layoutY="238.0" mnemonicParsing="false" text="Insert" />
-      <Button fx:id="btn1" layoutX="218.0" layoutY="238.0" mnemonicParsing="false" text="Delete" />
-      <Button fx:id="btn2" layoutX="306.0" layoutY="238.0" mnemonicParsing="false" text="Update" />
-      <Button fx:id="btnBack" layoutX="38.0" layoutY="530.0" mnemonicParsing="false" onAction="#MasukMahasiswa" text="Back" />
-      <Label fx:id="text5" layoutX="24.0" layoutY="196.0" text="Jam" textFill="WHITE" />
+      <Button fx:id="btn" layoutX="166.0" layoutY="196.0" mnemonicParsing="false" text="Insert" />
+      <Button fx:id="btn1" layoutX="229.0" layoutY="196.0" mnemonicParsing="false" text="Delete" />
+      <Button fx:id="btn2" layoutX="292.0" layoutY="196.0" mnemonicParsing="false" text="Update" />
+      <Button fx:id="btnBack" layoutX="47.0" layoutY="510.0" mnemonicParsing="false" onAction="#MasukMahasiswa" style="-fx-background-color: transparent; -fx-font-weight: bolder;" text="Back" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
    </children>
 </AnchorPane>
