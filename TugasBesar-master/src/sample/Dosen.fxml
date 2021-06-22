@@ -25,9 +25,9 @@
             <TextField fx:id="txtfield2" />
          </children>
       </VBox>
-      <Label fx:id="text1" layoutX="163.0" layoutY="36.0" style="-fx-font-weight: bolder;" text="Tinkat Keberhasilan Apk" />
-      <Label fx:id="text2" layoutX="192.0" layoutY="67.0" style="-fx-font-weight: bolder;" text="Ruangan" />
-      <Label fx:id="text3" layoutX="192.0" layoutY="97.0" prefHeight="18.0" prefWidth="78.0" style="-fx-font-weight: bolder;" text="Tempat" />
+      <Label fx:id="text1" layoutX="163.0" layoutY="42.0" style="-fx-font-weight: bolder;" text="Tinkat Keberhasilan Apk" />
+      <Label fx:id="text2" layoutX="164.0" layoutY="71.0" style="-fx-font-weight: bolder;" text="Penulisan Buku Laporan" />
+      <Label fx:id="text3" layoutX="172.0" layoutY="98.0" prefHeight="18.0" prefWidth="120.0" style="-fx-font-weight: bolder;" text="Keaktifan Mahasiswa" />
       <TableView fx:id="table" layoutX="217.0" layoutY="200.0" prefHeight="340.0" prefWidth="370.0">
         <columns>
           <TableColumn fx:id="tbl" prefWidth="106.0" text="Nama Pengawas" />
