@@ -116,7 +116,7 @@ public class Dosen implements Initializable {
     public ObservableList<Jadwal> getBooksList(){
         ObservableList<Jadwal> bookList = FXCollections.observableArrayList();
         Connection conn = getConnection();
-        String query = "SELECT * FROM PKL";
+        String query = "SELECT * FROM pkl";
         Statement st;
         ResultSet rs;
 
@@ -138,7 +138,7 @@ public class Dosen implements Initializable {
     public void showJadwal(){
         ObservableList<Jadwal> list = getBooksList();
 
-        tbl.setCellValueFactory(new PropertyValueFactory<Jadwal, String>("namapenawas"));
+        tbl.setCellValueFactory(new PropertyValueFactory<Jadwal, String>("namapengawas"));
         tbl1.setCellValueFactory(new PropertyValueFactory<Jadwal, Integer>("Ruangan"));
         tbl2.setCellValueFactory(new PropertyValueFactory<Jadwal, String>("Tempat"));
         tbl3.setCellValueFactory(new PropertyValueFactory<Jadwal, Integer>("Waktu"));
@@ -147,13 +147,13 @@ public class Dosen implements Initializable {
         table.setItems(list);
     }
     private void insertRecord(){
-        String query = "INSERT INTO PKL VALUES (" + txtfield.getText() + "'," + txtfield1.getText() + "','" + txtfield2.getText() + "',"
+        String query = "INSERT INTO pkl VALUES (" + txtfield.getText() + "'," + txtfield1.getText() + "','" + txtfield2.getText() + "',"
                 +  "','" + ")";
         executeQuery(query);
         showJadwal();
     }
     private void deleteButton(){
-        String query = "DELETE FROM PKL WHERE namapengawas =" + txtfield.getText() + "";
+        String query = "DELETE FROM pkl WHERE namapengawas =" + txtfield.getText() + "";
         executeQuery(query);
         showJadwal();
     }
