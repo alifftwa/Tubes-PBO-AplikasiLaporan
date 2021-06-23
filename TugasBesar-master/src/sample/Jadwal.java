@@ -5,15 +5,14 @@ public class Jadwal {
     private int Ruangan;
     private String Tempat;
     private int Waktu;
-    private int jam;
+   
 
-    public Jadwal(String namapengawas,int Ruangan,String Tempat,int Waktu,int jam){
+    public Jadwal(String namapengawas, int Ruangan, String Tempat, int Waktu){
         this.setNamapengawas(namapengawas);
         this.setRuangan(Ruangan);
         this.setTempat(Tempat);
         this.setWaktu(Waktu);
-        this.setJam(jam);
-
+        
     }
 
 
@@ -42,17 +41,7 @@ public class Jadwal {
     public void setWaktu (int waktu) {
         Waktu = waktu;
     }
-
-
-    public int getJam() {
-        return jam;
-    }
-
-    public void setJam(int jam) {
-        this.jam = jam;
-    }
-
-
+    
     public String getNamapengawas() {
         return namapengawas;
     }
