@@ -71,7 +71,7 @@ public class Admin {
     public void MasukMahasiswa() throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         Stage window = (Stage) btnBack.getScene().getWindow();
-        window.setScene(new Scene(root, 300, 275));
+        window.setScene(new Scene(root, 786, 480));
     }
 
     public void btndelete (Admin1 m) {
