@@ -28,21 +28,20 @@
       <Label fx:id="text1" layoutX="163.0" layoutY="42.0" style="-fx-font-weight: bolder;" text="Tinkat Keberhasilan Apk" />
       <Label fx:id="text2" layoutX="164.0" layoutY="71.0" style="-fx-font-weight: bolder;" text="Penulisan Buku Laporan" />
       <Label fx:id="text3" layoutX="172.0" layoutY="98.0" prefHeight="18.0" prefWidth="120.0" style="-fx-font-weight: bolder;" text="Keaktifan Mahasiswa" />
-      <TableView fx:id="table" layoutX="217.0" layoutY="200.0" prefHeight="340.0" prefWidth="370.0">
+      <TableView fx:id="table" layoutX="217.0" layoutY="200.0" prefHeight="340.0" prefWidth="294.0">
         <columns>
           <TableColumn fx:id="tbl" prefWidth="106.0" text="Nama Pengawas" />
           <TableColumn fx:id="tbl1" prefWidth="62.0" text="Ruangan " />
             <TableColumn fx:id="tbl2" prefWidth="62.0" text="Tempat" />
             <TableColumn fx:id="tbl3" prefWidth="62.0" text="Waktu" />
-            <TableColumn fx:id="tbl4" prefWidth="62.0" text="Jam" />
         </columns>
       </TableView>
-      <Button fx:id="btn" layoutX="209.0" layoutY="147.0" mnemonicParsing="false" text="Insert" />
+      <Button fx:id="btn" layoutX="209.0" layoutY="147.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Insert" />
       <Button fx:id="btn2" layoutX="401.0" layoutY="147.0" mnemonicParsing="false" text="Update" />
       <Button fx:id="btnBack" layoutX="47.0" layoutY="510.0" mnemonicParsing="false" onAction="#MasukMahasiswa" style="-fx-background-color: transparent; -fx-font-weight: bolder;" text="Back" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font></Button>
-      <Button fx:id="btn1" layoutX="309.0" layoutY="147.0" mnemonicParsing="false" text="Delete" />
+      <Button fx:id="btn1" layoutX="309.0" layoutY="147.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Delete" />
    </children>
 </AnchorPane>
