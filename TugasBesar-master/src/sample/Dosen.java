@@ -90,7 +90,7 @@ public class Dosen implements Initializable {
 
         if(event.getSource() == btn1){
             insertRecord();
-        }else if(event.getSource() == btn2){
+        }else if(event.getSource() == btn1){
             deleteButton();
         }
 
@@ -125,7 +125,7 @@ public class Dosen implements Initializable {
             rs = st.executeQuery(query);
             Jadwal jadwal;
             while(rs.next()){
-                jadwal = new Jadwal(rs.getString("namapengawas"), rs.getInt("Ruangan"), rs.getString("Tempat"), rs.getInt("Waktu"),rs.getInt("Jam"));
+                jadwal = new Jadwal(rs.getString("namapengawas"), rs.getInt("Ruangan"), rs.getString("Tempat"), rs.getInt("Waktu"));
                 bookList.add(jadwal);
             }
 
@@ -133,6 +133,8 @@ public class Dosen implements Initializable {
             ex.printStackTrace();
         }
         return bookList;
+
+
     }
 
     public void showJadwal(){
@@ -142,18 +144,17 @@ public class Dosen implements Initializable {
         tbl1.setCellValueFactory(new PropertyValueFactory<Jadwal, Integer>("Ruangan"));
         tbl2.setCellValueFactory(new PropertyValueFactory<Jadwal, String>("Tempat"));
         tbl3.setCellValueFactory(new PropertyValueFactory<Jadwal, Integer>("Waktu"));
-        tbl4.setCellValueFactory(new PropertyValueFactory<Jadwal, Integer>("Jam"));
 
         table.setItems(list);
     }
     private void insertRecord(){
         String query = "INSERT INTO pkl VALUES (" + txtfield.getText() + "'," + txtfield1.getText() + "','" + txtfield2.getText() + "',"
-                +  "','" + ")";
+                 + ")";
         executeQuery(query);
         showJadwal();
     }
     private void deleteButton(){
-        String query = "DELETE FROM pkl WHERE namapengawas =" + txtfield.getText() + "";
+        String query = "DELETE FROM pkl WHERE Nama Pengawas =" + txtfield.getText() + "";
         executeQuery(query);
         showJadwal();
     }
