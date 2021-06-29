@@ -171,7 +171,7 @@ public class Dosen implements Initializable {
     }
 
     public void MasukMahasiswa() throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
         Stage window = (Stage) btnBack.getScene().getWindow();
         window.setScene(new Scene(root, 786, 480));
     }
