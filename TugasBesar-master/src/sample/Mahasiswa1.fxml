@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="tampilan" prefHeight="480.0" prefWidth="786.0" style="-fx-background-color: #c20000;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Mahasiswa1">
+    <children>
+        <ImageView fitHeight="588.0" fitWidth="1046.0" layoutX="-244.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../Picture/563cc02a_ad9f_4391_9002_a4909186b4a6.jpeg" />
+            </image>
+        </ImageView>
+        <TableView fx:id="main_table" layoutX="369.0" layoutY="14.0" prefHeight="214.0" prefWidth="365.0">
+            <columns>
+                <TableColumn fx:id="id_column" text="Tempat PKN" />
+                <TableColumn fx:id="pengawas_column" prefWidth="115.0" text="Waktu Pelaksanaan" />
+                <TableColumn fx:id="ruangan_column" minWidth="0.0" prefWidth="168.0" text="Mendaftar Ujian" />
+            </columns>
+        </TableView>
+        <AnchorPane prefHeight="582.0" prefWidth="354.0" style="-fx-background-color: grey;">
+            <children>
+                <TextField fx:id="txtid_jadwal_kuliah" layoutX="131.0" layoutY="14.0" prefHeight="26.0" prefWidth="167.0" />
+                <Label layoutX="12.0" layoutY="18.0" style="-fx-font-weight: bolder;" text="Tempat PKN" textFill="WHITE" />
+                <TextField fx:id="txt_nama_pengawas" layoutX="131.0" layoutY="51.0" prefHeight="26.0" prefWidth="167.0" />
+                <TextField fx:id="txtruangan" layoutX="131.0" layoutY="87.0" prefHeight="26.0" prefWidth="167.0" />
+                <Button fx:id="create_btn" layoutX="126.0" layoutY="139.0" mnemonicParsing="false"  text="Create" />
+                <Button fx:id="delete_btn" layoutX="273.0" layoutY="139.0" mnemonicParsing="false"  text="Delete" />
+                <Button fx:id="update_btn" layoutX="201.0" layoutY="139.0" mnemonicParsing="false"  text="Update" />
+                <Button fx:id="btnBack" layoutX="31.0" layoutY="512.0" mnemonicParsing="false" onAction="#MasukMahasiswa" style="-fx-background-color: darkgrey; -fx-font-weight: bolder;" text="Back" textFill="WHITE">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+                <Label layoutX="12.0" layoutY="55.0" style="-fx-font-weight: bolder;" text="Waktu Pelaksanaan " textFill="WHITE" />
+                <Label layoutX="12.0" layoutY="91.0" style="-fx-font-weight: bolder;" text="Mendaftar Ujian" textFill="WHITE" />
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="369.0" layoutY="228.0" prefHeight="114.0" prefWidth="394.0" />
+        <AnchorPane layoutX="502.0" layoutY="533.0" prefHeight="47.0" prefWidth="272.0">
+            <children>
+                <Button fx:id="btn1" alignment="CENTER" layoutX="14.0" layoutY="2.0" mnemonicParsing="false" text="Upload Nilai Perusahaan" />
+                <Button fx:id="btn2" layoutX="163.0" layoutY="1.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="108.0" text="Upload Laporan" />
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
