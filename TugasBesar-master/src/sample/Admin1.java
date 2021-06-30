@@ -1,48 +1,67 @@
 package sample;
 
 public class Admin1 {
-    private String txtfield1;
-    private int txtfield2;
-    private String txtfield3;
-    private int txtfield4;
+    private String id_jadwal_ujian;
+    private String nama_pengawas;
+    private String Ruangan;
+    private String Gkb;
+    private String Waktu;
+    private String Nama_Peserta;
 
-    public Admin1 (String txtfield1, int txtfield2, String txtfield3, int txtfield4){
-        this.setTxtfield1(txtfield1);
-        this.setTxtfield2(txtfield2);
-        this.setTxtfield3(txtfield3);
-        this.setTxtfield4(txtfield4);
+    public Admin1 (String id_jadwal_ujian, String nama_pengawas, String Ruangan, String Gkb, String Waktu, String Nama_Peserta) {
+        this.id_jadwal_ujian = id_jadwal_ujian;
+        this.nama_pengawas = nama_pengawas;
+        this.Ruangan = Ruangan;
+        this.Gkb = Gkb;
+        this.Waktu = Waktu;
+        this.Nama_Peserta = Nama_Peserta;
     }
 
-
-    public String getTxtfield1 ( ) {
-        return txtfield1;
+    public String getId_jadwal_ujian ( ) {
+        return id_jadwal_ujian;
     }
 
-    public void setTxtfield1 (String txtfield1) {
-        this.txtfield1 = txtfield1;
+    public void setId_jadwal_ujian (String id_jadwal_ujian) {
+        this.id_jadwal_ujian = id_jadwal_ujian;
     }
 
-    public int getTxtfield2 ( ) {
-        return txtfield2;
+    public String getNama_pengawas ( ) {
+        return nama_pengawas;
     }
 
-    public void setTxtfield2 (int txtfield2) {
-        this.txtfield2 = txtfield2;
+    public void setNama_pengawas (String namapengawas) {
+        this.nama_pengawas = nama_pengawas;
     }
 
-    public String getTxtfield3 ( ) {
-        return txtfield3;
+    public String getRuangan ( ) {
+        return Ruangan;
     }
 
-    public void setTxtfield3 (String txtfield3) {
-        this.txtfield3 = txtfield3;
+    public void setRuangan (String ruangan) {
+        Ruangan = ruangan;
     }
 
-    public int getTxtfield4 ( ) {
-        return txtfield4;
+    public String getGkb ( ) {
+        return Gkb;
     }
 
-    public void setTxtfield4 (int txtfield4) {
-        this.txtfield4 = txtfield4;
+    public void setGkb (String gkb) {
+        Gkb = Gkb;
+    }
+
+    public String getWaktu ( ) {
+        return Waktu;
+    }
+
+    public void setWaktu (String waktu) {
+        Waktu = waktu;
+    }
+
+    public String getNama_Peserta ( ) {
+        return Nama_Peserta;
+    }
+
+    public void setNama_Peserta (String nama_Peserta) {
+        Nama_Peserta = nama_Peserta;
     }
 }
