@@ -31,6 +31,7 @@
          <font>
             <Font size="13.0" />
          </font></Button>
+      <Button fx:id="btnpkn" layoutX="443.0" layoutY="28.0" mnemonicParsing="false" onAction="#MasukMahasiswa1" text="Daftar PKN" />
    </children>
 
 </AnchorPane>
