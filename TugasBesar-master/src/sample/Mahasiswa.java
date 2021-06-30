@@ -1,70 +1,95 @@
 package sample;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import java.awt.Desktop;
-import java.net.URI;
+
+import javax.mail.*;
+import javax.mail.internet.*;
+import java.awt.*;
 import java.net.URL;
+import java.util.*;
 
 public class Mahasiswa {
-    @FXML
-    private AnchorPane tampilan;
 
     @FXML
-    private Label txt1;
-
+    private Button btnbck;
     @FXML
-    private TextField txtfield;
+    protected Button btncv;
 
-    @FXML
-    private TextField txtfield1;
+    public TextField emailToField;
+    public TextField emailFromField;
+    public TextArea emailMessageField;
+    public TextField emailSubjectField;
+    public PasswordField emailPasswordField;
+    public Label sentBoolValue;
 
-    @FXML
-    private TextField txtfield2;
+    public void buttonClicked(ActionEvent actionEvent){
+        sendEmail();
+    }
 
-    @FXML
-    private TextField txtfield3;
+    public void sendEmail(){
+        String to = emailToField.getText();
+        String from = emailFromField.getText();
+        String host = "smtp.gmail.com";
+        final String username = emailFromField.getText();
+        final String password = emailPasswordField.getText();
 
-    @FXML
-    private TextField txtfield4;
+        //setup mail server
 
-    @FXML
-    private Label txt2;
+        Properties props = System.getProperties();
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", host);
+        props.put("mail.smtp.port", "587");
 
-    @FXML
-    private Button btn;
+        Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator(){
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, password);
+            }
+        });
 
-    @FXML
-    private Button btnUpload;
+        try{
 
-    @FXML
-    private Button btnBack;
+            //create mail
+            MimeMessage m = new MimeMessage(session);
+            m.setFrom(new InternetAddress(from));
+            m.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress(to));
+            m.setSubject(emailSubjectField.getText());
+            m.setText(emailMessageField.getText());
+
+            //send mail
+
+            Transport.send(m);
+            sentBoolValue.setVisible(true);
+            System.out.println("Message sent!");
+
+        }   catch (MessagingException e){
+            e.printStackTrace();
+        }
+
+    }
+    public void btncv(){
+        try{
+            Desktop.getDesktop().browse(new URL("https://drive.google.com/drive/folders/1C00YQoRuzGXP0hVPE1YIrs9CsMhQYcWe?usp=sharing").toURI());
+        }
+        catch (Exception e){
+        }
+    }
 
     public void MasukMahasiswa() throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
-        Stage window = (Stage) btnBack.getScene().getWindow();
+        Stage window = (Stage) btnbck.getScene().getWindow();
         window.setScene(new Scene(root, 786, 480));
     }
 
-    public void btnUpload(){
-        try{
-            Desktop.getDesktop().browse(new URL("https://drive.google.com/drive/folders/1C00YQoRuzGXP0hVPE1YIrs9CsMhQYcWe?usp=sharing").toURI());
-        }
-        catch (Exception e){
-        }
-    }
-
-    public void btnDownload(){
-        try{
-            Desktop.getDesktop().browse(new URL("https://drive.google.com/drive/folders/1C00YQoRuzGXP0hVPE1YIrs9CsMhQYcWe?usp=sharing").toURI());
-        }
-        catch (Exception e){
-        }
-    }
 }
