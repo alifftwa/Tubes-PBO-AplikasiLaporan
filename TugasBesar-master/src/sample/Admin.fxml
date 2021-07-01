@@ -8,62 +8,51 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="tampilan" prefHeight="480.0" prefWidth="786.0" style="-fx-background-color: #c20000;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Admin">
    <children>
-      <ImageView fitHeight="588.0" fitWidth="1046.0" layoutX="-244.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="588.0" fitWidth="1046.0" layoutX="-244.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Picture/563cc02a_ad9f_4391_9002_a4909186b4a6.jpeg" />
          </image>
       </ImageView>
-      <TableView fx:id="main_table" layoutX="369.0" layoutY="14.0" prefHeight="214.0" prefWidth="402.0">
+      <TableView fx:id="tabel_utama" layoutX="378.0" layoutY="29.0" prefHeight="332.0" prefWidth="402.0">
         <columns>
-          <TableColumn fx:id="id_column" prefWidth="35.99993896484375" text="ID" />
-          <TableColumn fx:id="pengawas_column" prefWidth="93.5999755859375" text="Pengawas" />
-            <TableColumn fx:id="ruangan_column" prefWidth="64.80001831054688" text="Ruangan" />
-            <TableColumn fx:id="gkb_column" prefWidth="44.0" text="GKB" />
-            <TableColumn fx:id="waktu_column" prefWidth="54.39996337890625" text="Waktu" />
-            <TableColumn fx:id="peserta_column" prefWidth="111.99993896484375" text="Peserta" />
+          <TableColumn fx:id="kolomid" prefWidth="50.39996337890625" text="ID" />
+          <TableColumn fx:id="kolomanggota" prefWidth="137.60000610351562" text="Jumlah Anggota" />
+            <TableColumn fx:id="kolomwaktu" prefWidth="110.4000244140625" text="Waktu" />
+            <TableColumn fx:id="kolomtempat" prefWidth="105.59991455078125" text="Tempat" />
         </columns>
       </TableView>
-      <AnchorPane prefHeight="582.0" prefWidth="354.0" style="-fx-background-color: grey;">
+      <AnchorPane layoutX="14.0" layoutY="29.0" prefHeight="213.0" prefWidth="354.0" style="-fx-background-color: grey;">
          <children>
-            <TextField fx:id="txtid_jadwal_kuliah" layoutX="131.0" layoutY="14.0" prefHeight="26.0" prefWidth="167.0" />
-            <Label layoutX="12.0" layoutY="18.0" style="-fx-font-weight: bolder;" text="ID-Jadwal Ujian" textFill="WHITE" />
-            <TextField fx:id="txt_nama_pengawas" layoutX="131.0" layoutY="51.0" prefHeight="26.0" prefWidth="167.0" />
-            <TextField fx:id="txtruangan" layoutX="131.0" layoutY="87.0" prefHeight="26.0" prefWidth="167.0" />
-            <TextField fx:id="txtgkb" layoutX="131.0" layoutY="124.0" prefHeight="26.0" prefWidth="167.0" />
-            <TextField fx:id="txtwaktu" layoutX="131.0" layoutY="161.0" prefHeight="26.0" prefWidth="167.0" />
-            <Button fx:id="create_btn" layoutX="131.0" layoutY="244.0" mnemonicParsing="false" onAction="#createAdmin" text="Create" />
-            <Button fx:id="delete_btn" layoutX="247.0" layoutY="244.0" mnemonicParsing="false" onAction="#deleteAdmin" text="Delete" />
-            <Button fx:id="update_btn" layoutX="187.0" layoutY="244.0" mnemonicParsing="false" onAction="#updateAdmin" text="Update" />
-            <Button fx:id="btnBack" layoutX="31.0" layoutY="512.0" mnemonicParsing="false" onAction="#MasukMahasiswa" style="-fx-background-color: darkgrey; -fx-font-weight: bolder;" text="Back" textFill="WHITE">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Label layoutX="12.0" layoutY="55.0" style="-fx-font-weight: bolder;" text="Nama Pengawas" textFill="WHITE" />
-            <Label layoutX="12.0" layoutY="91.0" style="-fx-font-weight: bolder;" text="Ruangan" textFill="WHITE" />
-            <Label layoutX="12.0" layoutY="128.0" style="-fx-font-weight: bolder;" text="GKB" textFill="WHITE" />
-            <Label layoutX="12.0" layoutY="165.0" style="-fx-font-weight: bolder;" text="Waktu" textFill="WHITE" />
-            <TextField fx:id="txtnama_peserta" layoutX="131.0" layoutY="199.0" prefHeight="26.0" prefWidth="167.0" />
-            <Label layoutX="12.0" layoutY="203.0" style="-fx-font-weight: bolder;" text="Nama Peserta" textFill="WHITE" />
+            <TextField fx:id="txtidpkn" layoutX="131.0" layoutY="14.0" prefHeight="26.0" prefWidth="167.0" />
+            <Label layoutX="12.0" layoutY="18.0" style="-fx-font-weight: bolder;" text="ID PKN" textFill="WHITE" />
+            <TextField fx:id="txtjumlah" layoutX="131.0" layoutY="51.0" prefHeight="26.0" prefWidth="167.0" />
+            <TextField fx:id="txtwaktu" layoutX="131.0" layoutY="87.0" prefHeight="26.0" prefWidth="167.0" />
+            <TextField fx:id="txttempat" layoutX="131.0" layoutY="124.0" prefHeight="26.0" prefWidth="167.0" />
+            <Button fx:id="btncreate" layoutX="131.0" layoutY="163.0" mnemonicParsing="false" onAction="#buttonPressed" text="Create" />
+            <Button fx:id="btndelete" layoutX="247.0" layoutY="163.0" mnemonicParsing="false" onAction="#buttonPressed" text="Delete" />
+            <Button fx:id="btnupdate" layoutX="187.0" layoutY="163.0" mnemonicParsing="false" onAction="#buttonPressed" text="Update" />
+            <Label layoutX="12.0" layoutY="55.0" style="-fx-font-weight: bolder;" text="Jumlah Anggota" textFill="WHITE" />
+            <Label layoutX="12.0" layoutY="91.0" style="-fx-font-weight: bolder;" text="Waktu" textFill="WHITE" />
+            <Label layoutX="12.0" layoutY="128.0" style="-fx-font-weight: bolder;" text="Tempat" textFill="WHITE" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="369.0" layoutY="228.0" prefHeight="114.0" prefWidth="394.0">
+      <AnchorPane layoutX="378.0" layoutY="361.0" prefHeight="30.0" prefWidth="394.0">
          <children>
-            <TextField fx:id="get_text" layoutX="-2.0" layoutY="1.0" onAction="#getAdminByID" prefHeight="26.0" prefWidth="143.0" />
-            <Button fx:id="get_btn" layoutX="141.0" layoutY="1.0" mnemonicParsing="false" onAction="#pushAdminOntoTableForGetButton" text="Get" />
-            <Button fx:id="revert_btn" layoutX="176.0" layoutY="1.0" mnemonicParsing="false" text="Revert" />
+            <TextField fx:id="txtget" layoutY="3.0" onAction="#getAdminByID" prefHeight="26.0" prefWidth="143.0" />
+            <Button fx:id="btnget" layoutX="143.0" layoutY="2.0" mnemonicParsing="false" onAction="#buttonPressed" text="Get" />
+            <Button fx:id="btnrevert" layoutX="178.0" layoutY="2.0" mnemonicParsing="false" onAction="#buttonPressed" text="Revert" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="502.0" layoutY="533.0" prefHeight="47.0" prefWidth="272.0">
+      <AnchorPane layoutX="533.0" layoutY="535.0" prefHeight="47.0" prefWidth="246.0">
          <children>
-            <Button fx:id="btn1" alignment="CENTER" layoutX="118.0" layoutY="1.0" mnemonicParsing="false" text="Hasil PKN" />
-            <Button fx:id="btn2" layoutX="193.0" layoutY="1.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="78.0" text="Nilai Ujian" />
-            <Button fx:id="btn" layoutY="1.0" mnemonicParsing="false" onAction="#pushVehiclesOntoTable" text="Email Perusahaan" />
+            <Button fx:id="btnpkn" alignment="CENTER" layoutX="77.0" layoutY="1.0" mnemonicParsing="false" text="Nilai PKN" />
+            <Button fx:id="btn" layoutX="151.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="94.0" text="Draf Peserta" />
+            <Button fx:id="btnujian" layoutY="1.0" mnemonicParsing="false" onAction="#pushAdminOntoTable" text="Nilai Ujian" />
          </children>
       </AnchorPane>
+      <Button fx:id="btnBack" layoutX="34.0" layoutY="533.0" mnemonicParsing="false" onAction="#MasukMahasiswa" text="Back" />
    </children>
 </AnchorPane>
