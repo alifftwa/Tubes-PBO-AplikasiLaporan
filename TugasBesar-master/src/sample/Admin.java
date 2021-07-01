@@ -3,7 +3,6 @@ package sample;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -39,46 +38,23 @@ public class Admin implements Initializable {
     @FXML
     private Button btnBack;
     @FXML
-    private TextField txtfield1;
-    @FXML
-    private TextField txtfield2;
-    @FXML
-    private TextField txtfield3;
-    @FXML
-    private TextField txtfield4;
-    @FXML
-    private Button btninsert;
-    @FXML
     private Button btndelete;
-    @FXML
-    private TableView<Admin1> table;
-    @FXML
-    private TableColumn<?, ?> colomnama;
-    @FXML
-    private TableColumn<?, ?> colomnim;
-    @FXML
-    private TableColumn<?, ?> colomtempat;
-    @FXML
-    private TableColumn<?, ?> colomwaktu;
-    public TextField txtid_jadwal_kuliah;
-    public TextField txt_nama_pengawas;
-    public TextField txtruangan;
-    public TextField txtgkb;
-    public TextField txtnama_peserta;
-    public Button create_btn;
-    public Button delete_btn;
-    public Button update_btn;
-    public TextField get_text;
-    public Button get_btn;
-    public Button revert_btn;
-    public TableColumn id_column;
-    public TableColumn pengawas_column;
-    public TableColumn ruangan_column;
-    public TableColumn gkb_column;
-    public TableColumn waktu_column;
-    public TableColumn peserta_column;
     public TextField txtwaktu;
-    public TableView main_table;
+    public TableView tabel_utama;
+    public TableColumn kolomid;
+    public TableColumn kolomanggota;
+    public TableColumn kolomwaktu;
+    public TableColumn kolomtempat;
+    public TextField txtidpkn;
+    public TextField txtjumlah;
+    public TextField txttempat;
+    public Button btncreate;
+    public Button btnupdate;
+    public TextField txtget;
+    public Button btnget;
+    public Button btnrevert;
+    public Button btnpkn;
+    public Button btnujian;
 
     // establishing initial connection with MySQL server
 
@@ -88,11 +64,11 @@ public class Admin implements Initializable {
         if(connect == null)
         {
             try {
-                String url  ="jdbc:mysql://localhost/db_admin";
+                String url  ="jdbc:mysql://localhost/db_pkn";
                 String user = "root";
                 String pass = "";
 
-                DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+                DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
                 connect = DriverManager.getConnection(url, user, pass);
             } catch (SQLException ex) {
                 //Logger.getLogger(DatabaseConnect.class.getName()).log(Level.SEVERE, null, ex);
@@ -104,10 +80,10 @@ public class Admin implements Initializable {
     }
 
     // implementing update from remote DB to Desktop GUI application
-    public ObservableList<Admin1> getAdmin(){
+    public ObservableList<Eadmin> getAdmin(){
 
         // Oracle documentation to process SQL statements with JDBC: https://docs.oracle.com/javase/tutorial/jdbc/basics/processingsqlstatements.html
-        ObservableList<Admin1> admin = FXCollections.observableArrayList();
+        ObservableList<Eadmin> admin = FXCollections.observableArrayList();
         Connection connect = getConnection();
         String sql_query = "SELECT * FROM admin";
 
@@ -115,7 +91,7 @@ public class Admin implements Initializable {
             ResultSet result_set = statement.executeQuery(sql_query);
             // iterating through resultant Vehicle objects from remote DB
             while(result_set.next()){
-                Admin1 admin_queried = new Admin1(result_set.getString("id_jadwal_ujian"), result_set.getString("nama_pengawas"), result_set.getString("ruangan"), result_set.getString("gkb"), result_set.getString("waktu"), result_set.getString("nama_peserta"));
+                Eadmin admin_queried = new Eadmin(result_set.getInt("id_pkn"), result_set.getInt("jumlah_anggota"), result_set.getString("waktu"), result_set.getString("tempat"));
                 admin.add(admin_queried);
             }
         }
@@ -126,19 +102,19 @@ public class Admin implements Initializable {
     }
 
     // implementing update from remote DB to Desktop GUI application onyl for Get Button
-    public ObservableList<Admin1> getAdminForGetButton(){
+    public ObservableList<Eadmin> getAdminForGetButton(){
 
         // Oracle documentation to process SQL statements with JDBC: https://docs.oracle.com/javase/tutorial/jdbc/basics/processingsqlstatements.html
-        ObservableList<Admin1> admin = FXCollections.observableArrayList();
+        ObservableList<Eadmin> admin = FXCollections.observableArrayList();
         Connection connect = getConnection();
-        String sql_query = "SELECT * FROM admin WHERE id_jadwal_ujian = " + get_text.getText() + "";
+        String sql_query = "SELECT * FROM admin WHERE id_pkn = " + txtget.getText() + "";
 
 
         try(Statement statement = connect.createStatement()){
             ResultSet result_set = statement.executeQuery(sql_query);
             // iterating through resultant Vehicle objects from remote DB
             while(result_set.next()){
-                Admin1 admin_queried = new Admin1(result_set.getString("id_jadwal_ujian"), result_set.getString("nama_pengawas"), result_set.getString("ruangan"), result_set.getString("gkb"), result_set.getString("waktu"), result_set.getString("nama_peserta"));
+                Eadmin admin_queried = new Eadmin(result_set.getInt("id_pkn"), result_set.getInt("jumlah_anggota"), result_set.getString("waktu"), result_set.getString("tempat"));
                 admin.add(admin_queried);
             }
         }
@@ -152,40 +128,36 @@ public class Admin implements Initializable {
     public void pushAdminOntoTableForGetButton(){
 
         // retrieving data from remote DB
-        ObservableList<Admin1> admin = getAdminForGetButton();
+        ObservableList<Eadmin> admin = getAdminForGetButton();
 
         // updating DB into GUI application
-        id_column.setCellValueFactory(new PropertyValueFactory<>("id_jadwal_ujian"));
-        pengawas_column.setCellValueFactory(new PropertyValueFactory<>("nama_pengawas"));
-        ruangan_column.setCellValueFactory(new PropertyValueFactory<>("ruangan"));
-        gkb_column.setCellValueFactory(new PropertyValueFactory<>("gkb"));
-        waktu_column.setCellValueFactory(new PropertyValueFactory<>("waktu"));
-        peserta_column.setCellValueFactory(new PropertyValueFactory<>("nama_peserta"));
+        kolomid.setCellValueFactory(new PropertyValueFactory<>("id_pkn"));
+        kolomanggota.setCellValueFactory(new PropertyValueFactory<>("jumlah_anggota"));
+        kolomwaktu.setCellValueFactory(new PropertyValueFactory<>("Waktu"));
+        kolomtempat.setCellValueFactory(new PropertyValueFactory<>("Tempat"));
 
-        table.setItems(admin);
+        tabel_utama.setItems(admin);
     }
 
     // updating data from MySQL DataBase into Desktop GUI application
-    public void pushVehiclesOntoTable(){
+    public void pushAdminOntoTable(){
 
         // retrieving data from remote DB
-        ObservableList<Admin1> admin = getAdmin();
+        ObservableList<Eadmin> admin = getAdmin();
 
         // updating DB into GUI application
-        id_column.setCellValueFactory(new PropertyValueFactory<>("id_jadwal_ujian"));
-        pengawas_column.setCellValueFactory(new PropertyValueFactory<>("nama_pengawas"));
-        ruangan_column.setCellValueFactory(new PropertyValueFactory<>("ruangan"));
-        gkb_column.setCellValueFactory(new PropertyValueFactory<>("gkb"));
-        waktu_column.setCellValueFactory(new PropertyValueFactory<>("waktu"));
-        peserta_column.setCellValueFactory(new PropertyValueFactory<>("nama_peserta"));
+        kolomid.setCellValueFactory(new PropertyValueFactory<>("id_pkn"));
+        kolomanggota.setCellValueFactory(new PropertyValueFactory<>("jumlah_anggota"));
+        kolomwaktu.setCellValueFactory(new PropertyValueFactory<>("Waktu"));
+        kolomtempat.setCellValueFactory(new PropertyValueFactory<>("Tempat"));
 
-        main_table.setItems(admin);
+        tabel_utama.setItems(admin);
     }
 
     // creating Vehicle object based on user input
     public void createAdmin() throws SQLException {
 
-        if(txtid_jadwal_kuliah.getText().equals("") || txt_nama_pengawas.getText().equals("") || txtruangan.getText().equals("") || txtgkb.getText().equals("")|| txtwaktu.getText().equals("")|| txtnama_peserta.getText().equals("")) {
+        if(txtidpkn.getText().equals("") || txtjumlah.getText().equals("") || txtwaktu.getText().equals("") || txttempat.getText().equals("")) {
             // testing for invalid user input by means of Dialog
             Alert alert = new Alert(Alert.AlertType.ERROR, "Please fill all text fields!", ButtonType.OK);
             alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
@@ -193,16 +165,16 @@ public class Admin implements Initializable {
         }
         else{
             // Creating Vehicle object based on user input
-            String sql_query = "INSERT INTO admin VALUES(" + txtid_jadwal_kuliah.getText() + "," + txt_nama_pengawas.getText() + ",'" + txtruangan.getText() + "','" + txtgkb.getText() + "','" + txtnama_peserta.getText() + "')";
+            String sql_query = "INSERT INTO admin VALUES(" + txtidpkn.getText() + "," + txtjumlah.getText() + ",'" + txtwaktu.getText() + "','" + txttempat.getText() + "')";
             establishSQLConnection(sql_query);
-            pushVehiclesOntoTable();
+            pushAdminOntoTable();
         }
     }
 
     // updating Vehicle object based on ID
     public void updateAdmin() throws SQLException {
 
-        if(txtid_jadwal_kuliah.getText().equals("") || txt_nama_pengawas.getText().equals("") || txtruangan.getText().equals("") || txtgkb.getText().equals("")|| txtwaktu.getText().equals("")|| txtnama_peserta.getText().equals("")) {
+        if(txtidpkn.getText().equals("") || txtjumlah.getText().equals("") || txtwaktu.getText().equals("") || txttempat.getText().equals("")) {
             // testing for invalid user input by means of Dialog
             Alert alert = new Alert(Alert.AlertType.ERROR, "Please fill all text fields!", ButtonType.OK);
             alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
@@ -211,9 +183,9 @@ public class Admin implements Initializable {
         }
         else {
             // updating Vehicle object based on id
-            String sql_query = "UPDATE admin SET nama_pengawas = " + txt_nama_pengawas.getText() + ",ruangan = '" + txtruangan.getText() + "', gkb = '" + txtgkb.getText() + ",waktu = '" + txtwaktu.getText() + "', ruangan = '" + txtnama_peserta.getText() + "' WHERE id = " + txtid_jadwal_kuliah.getText() + "";
+            String sql_query = "UPDATE admin SET jumlah_anggota = " + txtjumlah.getText() + ",waktu = '" + txtwaktu.getText() + "', tempat = '" + txttempat.getText() + "' WHERE id = " + txtidpkn.getText() + "";
             establishSQLConnection(sql_query);
-            pushVehiclesOntoTable();
+            pushAdminOntoTable();
         }
     }
 
@@ -222,7 +194,7 @@ public class Admin implements Initializable {
     private void deleteAdmin() throws SQLException {
 
         // testing for invalid user input by means of Dialog
-        if(txtid_jadwal_kuliah.getText().equals("") || txt_nama_pengawas.getText().equals("") || txtruangan.getText().equals("") || txtgkb.getText().equals("")|| txtwaktu.getText().equals("")|| txtnama_peserta.getText().equals("") || txtid_jadwal_kuliah.getText().equals("") || txt_nama_pengawas.getText().equals("") || txtruangan.getText().equals("") || txtgkb.getText().equals("")|| txtwaktu.getText().equals("")|| txtnama_peserta.getText().equals("")){
+        if(txtidpkn.getText().equals("") || txtjumlah.getText().equals("") || txtwaktu.getText().equals("") || txttempat.getText().equals("")){
 
             Alert alert = new Alert(Alert.AlertType.ERROR, "Please select a row in the table or add an ID in the text field to delete!", ButtonType.OK);
             alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
@@ -230,23 +202,23 @@ public class Admin implements Initializable {
         }
         else{
             // deleting row based on ID since it is the primary key
-            String sql_query = "DELETE FROM vehicles WHERE id = " + txtid_jadwal_kuliah.getText() + "";
+            String sql_query = "DELETE FROM admin WHERE id = " + txtidpkn.getText() + "";
             establishSQLConnection(sql_query);
-            pushVehiclesOntoTable();
+            pushAdminOntoTable();
         }
     }
 
     // getting Vehicle objects based on ID
     public void getAdminByID() throws SQLException{
         // testing for invalid user input by means of Dialog
-        if(get_text.getText().equals("")){
+        if(txtget.getText().equals("")){
 
             Alert alert = new Alert(Alert.AlertType.ERROR, "Please enter an ID to retrieve corresponding Vehicle entity!", ButtonType.OK);
             alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
             alert.show();
         }
         else{
-            String sql_query = "SELECT * FROM vehicles WHERE id = " + get_text.getText() + "";
+            String sql_query = "SELECT * FROM admin WHERE id = " + txtget.getText() + "";
             establishSQLConnection(sql_query);
             pushAdminOntoTableForGetButton();
         }
@@ -261,8 +233,7 @@ public class Admin implements Initializable {
         try(Statement statement = connect_object.createStatement()){
             statement.executeUpdate(sql_query);
         }
-        catch (Exception e){
-
+        catch (Exception e) {
         }
     }
 
@@ -271,24 +242,24 @@ public class Admin implements Initializable {
     public void buttonPressed(javafx.event.ActionEvent actionEvent) throws SQLException {
 
         // calling relevant methods based on event source
-        if (actionEvent.getSource() == create_btn ){
+        if (actionEvent.getSource() == btncreate ){
             createAdmin();
         }
-        else if(actionEvent.getSource() == update_btn){
+        else if(actionEvent.getSource() == btnupdate){
             updateAdmin();
         }
 
-        else if(actionEvent.getSource() == delete_btn){
+        else if(actionEvent.getSource() == btndelete){
             deleteAdmin();
         }
 
-        else if (actionEvent.getSource() == get_btn){
+        else if (actionEvent.getSource() == btnget){
             getAdminByID();
         }
 
-        else if(actionEvent.getSource() == revert_btn){
-            pushVehiclesOntoTable();
-            get_text.clear();
+        else if(actionEvent.getSource() == btnrevert){
+            pushAdminOntoTable();
+            txtget.clear();
         }
     }
 
@@ -296,21 +267,19 @@ public class Admin implements Initializable {
     // param: mouseEvent: MouseEvent
     public void mouseClicked(MouseEvent mouseEvent) {
 
-        Admin1 vehicle = (Admin1) main_table.getSelectionModel().getSelectedItem();
+        Eadmin vehicle = (Eadmin) tabel_utama.getSelectionModel().getSelectedItem();
 
         // extracting data from selected row to be displayed into text fields
-        txtid_jadwal_kuliah.setText(String.valueOf(vehicle.getId_jadwal_ujian()));
-        txt_nama_pengawas.setText(String.valueOf(vehicle.getNama_pengawas()));
-        txtruangan.setText(vehicle.getRuangan());
-        txtgkb.setText(vehicle.getGkb());
+        txtidpkn.setText(String.valueOf(vehicle.getId_pkn()));
+        txtjumlah.setText(String.valueOf(vehicle.getJumlah_anggota()));
         txtwaktu.setText(vehicle.getWaktu());
-        txtnama_peserta.setText(vehicle.getNama_Peserta());
+        txttempat.setText(vehicle.getTempat());
     }
 
     // delegate function for Initializable class
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        pushVehiclesOntoTable();
+        pushAdminOntoTable();
     }
 
     public void MasukMahasiswa() throws Exception {
