@@ -18,8 +18,11 @@ import java.awt.*;
 import java.net.URL;
 import java.util.*;
 
+import static javafx.fxml.FXMLLoader.load;
+
 public class Mahasiswa {
 
+    public Button btndaftar;
     @FXML
     private Button btnbck;
     @FXML
@@ -87,9 +90,15 @@ public class Mahasiswa {
     }
 
     public void MasukMahasiswa() throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
         Stage window = (Stage) btnbck.getScene().getWindow();
         window.setScene(new Scene(root, 786, 480));
+    }
+
+    public void MasukMahasiswa1() throws Exception {
+        Parent root = load(getClass().getResource("Mahasiswa1.fxml"));
+        Stage window = (Stage) btndaftar.getScene().getWindow();
+        window.setScene(new Scene(root, 786, 550));
     }
 
 }
