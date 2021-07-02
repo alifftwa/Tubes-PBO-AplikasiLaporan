@@ -48,9 +48,9 @@
       </AnchorPane>
       <AnchorPane layoutX="533.0" layoutY="535.0" prefHeight="47.0" prefWidth="246.0">
          <children>
-            <Button fx:id="btnpkn" alignment="CENTER" layoutX="77.0" layoutY="1.0" mnemonicParsing="false" text="Nilai PKN" />
-            <Button fx:id="btn" layoutX="151.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="94.0" text="Draf Peserta" />
-            <Button fx:id="btnujian" layoutY="1.0" mnemonicParsing="false" onAction="#pushAdminOntoTable" text="Nilai Ujian" />
+            <Button fx:id="btnnilaipkn" alignment="CENTER" layoutX="77.0" layoutY="1.0" mnemonicParsing="false" text="Nilai PKN" />
+            <Button fx:id="btndraf" layoutX="151.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="94.0" text="Draf Peserta" />
+            <Button fx:id="btnnilaiujian" layoutY="1.0" mnemonicParsing="false" onAction="#pushAdminOntoTable" text="Nilai Ujian" />
          </children>
       </AnchorPane>
       <Button fx:id="btnBack" layoutX="34.0" layoutY="533.0" mnemonicParsing="false" onAction="#MasukMahasiswa" text="Back" />
