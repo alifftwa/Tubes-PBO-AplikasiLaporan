@@ -20,7 +20,7 @@ public class login {
     private Button btnlogin;
 
     public void Masuklogin() throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
         Stage window = (Stage) btnlogin.getScene().getWindow();
         window.setScene(new Scene(root, 786, 480));
     }
