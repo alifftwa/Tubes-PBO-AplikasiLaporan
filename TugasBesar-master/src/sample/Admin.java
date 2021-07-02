@@ -21,7 +21,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Admin implements Initializable {
-    
+
     @FXML
     private AnchorPane tampilan;
     @FXML
