@@ -1,6 +1,5 @@
 package sample;
 
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -21,20 +20,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-
-
 public class Admin implements Initializable {
-
-
-
+    
     @FXML
     private AnchorPane tampilan;
-    @FXML
-    private Button btn;
-    @FXML
-    private Button btn1;
-    @FXML
-    private Button btn2;
     @FXML
     private Button btnBack;
     @FXML
@@ -183,7 +172,7 @@ public class Admin implements Initializable {
         }
         else {
             // updating Vehicle object based on id
-            String sql_query = "UPDATE admin SET jumlah_anggota = " + txtjumlah.getText() + ",waktu = '" + txtwaktu.getText() + "', tempat = '" + txttempat.getText() + "' WHERE id = " + txtidpkn.getText() + "";
+            String sql_query = "UPDATE admin SET jumlah_anggota = " + txtjumlah.getText() + ",waktu = '" + txtwaktu.getText() + "', tempat = '" + txttempat.getText() + "' WHERE id_pkn = " + txtidpkn.getText() + "";
             establishSQLConnection(sql_query);
             pushAdminOntoTable();
         }
@@ -202,7 +191,7 @@ public class Admin implements Initializable {
         }
         else{
             // deleting row based on ID since it is the primary key
-            String sql_query = "DELETE FROM admin WHERE id = " + txtidpkn.getText() + "";
+            String sql_query = "DELETE FROM admin WHERE id_pkn = " + txtidpkn.getText() + "";
             establishSQLConnection(sql_query);
             pushAdminOntoTable();
         }
@@ -218,7 +207,7 @@ public class Admin implements Initializable {
             alert.show();
         }
         else{
-            String sql_query = "SELECT * FROM admin WHERE id = " + txtget.getText() + "";
+            String sql_query = "SELECT * FROM admin WHERE id_pkn = " + txtget.getText() + "";
             establishSQLConnection(sql_query);
             pushAdminOntoTableForGetButton();
         }
@@ -283,7 +272,7 @@ public class Admin implements Initializable {
     }
 
     public void MasukMahasiswa() throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
         Stage window = (Stage) btnBack.getScene().getWindow();
         window.setScene(new Scene(root, 786, 480));
     }
