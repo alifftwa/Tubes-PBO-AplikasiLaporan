@@ -1,37 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="477.0" prefWidth="786.0" style="-fx-background-color: #c20000;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
 
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.login">
    <children>
-      <ImageView fitHeight="485.0" fitWidth="857.0" layoutX="-54.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Picture/Mahasiswa-UMM_Pendaftar-UMM-Tembus-25ribu-Camaba1.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="49.0" fitWidth="102.0" layoutX="24.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Picture/Logo-UMM_1%20(1).png" />
-         </image>
-      </ImageView>
-      <Button fx:id="btn" layoutX="521.0" layoutY="27.0" mnemonicParsing="false" onAction="#MasukMahasiswa" style="-fx-background-color: transparent; -fx-font-weight: bolder;" text="Mahasiswa">
-         <font>
-            <Font size="13.0" />
-         </font></Button>
-      <Button fx:id="btn2" layoutX="602.0" layoutY="27.0" mnemonicParsing="false" onAction="#MasukDosen" prefHeight="26.0" prefWidth="102.0" style="-fx-background-color: transparent; -fx-font-weight: bolder;" text="Dosen ">
-         <font>
-            <Font size="13.0" />
-         </font></Button>
-      <Button fx:id="btn3" layoutX="704.0" layoutY="27.0" mnemonicParsing="false" onAction="#MasukAdmin" style="-fx-background-color: transparent; -fx-font-weight: bolder;" text="Admin">
-         <font>
-            <Font size="13.0" />
-         </font></Button>
-      <Button fx:id="btnpkn" layoutX="443.0" layoutY="28.0" mnemonicParsing="false" onAction="#MasukMahasiswa1" text="Daftar PKN" />
+      <Label layoutX="199.0" layoutY="116.0" prefHeight="26.0" prefWidth="42.0" text="Email" />
+      <Label layoutX="191.0" layoutY="170.0" prefHeight="26.0" prefWidth="57.0" text="Password" />
+      <TextField fx:id="fieldEmail" layoutX="259.0" layoutY="117.0" />
+      <PasswordField fx:id="fieldPassword" layoutX="260.0" layoutY="171.0" />
+      <Button fx:id="btnlogin" layoutX="274.0" layoutY="244.0" mnemonicParsing="false" onAction="#Masuklogin" text="login" />
    </children>
-
 </AnchorPane>
